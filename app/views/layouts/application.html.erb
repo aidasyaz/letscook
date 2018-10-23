@@ -13,6 +13,14 @@
 
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
       <a class="navbar-brand" href="#">LetsCook</a>
+        <div id="user_nav">
+          <% if current_user %>
+            <%= link_to "Logout", logout_path %>
+          <% else %>
+            <%= link_to "Register", new_user_path %> |
+            <%= link_to "Login", login_path %>
+          <% end %>
+        </div>
       
     </nav>
 

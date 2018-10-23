@@ -1,10 +1,7 @@
 Rails.application.routes.draw do
-  root 'recipes#index'
-
-  resources :users
+  root 'recipes#index' 
   
-  get 'users/new'
-
+  # sessions
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
