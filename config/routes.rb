@@ -1,16 +1,21 @@
 Rails.application.routes.draw do
-  root 'recipes#index'
-
-  resources :users
+  root 'recipes#index' 
   
-  get 'users/new'
-
+  # sessions
   get 'login', to: 'sessions#new'
   get 'logout', to: 'sessions#destroy'
 
   # login logout session
   resources :sessions, only: [:create]
-  # new user registration
-  resources :users, only: [:new, :create]
+  
+  # user
+  resources :users
+  # recipes
+  resources :recipes
+ 
+ get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+
+
 
 end

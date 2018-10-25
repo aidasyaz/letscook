@@ -1,7 +1,35 @@
  <h1>Homepage for recipes</h1>
 
+<!-- flashes welcome user notice -->
 <% if flash[:success] %>
   <%= flash[:success] %>
 <% end %>
 
-<%= link_to 'log out.', logout_path %>
+<div class= "container">
+	Logged as <strong><%= current_user.email %></strong>
+</div>
+
+<div class="container-fluid">
+	<div class="jumbotron">
+		<%= link_to 'New Recipe', new_recipe_path %>
+		<table>
+			<tr>
+				<th>Title</th>
+				<th>Description</th>
+				<th></th>
+			</tr>
+
+			<% @recipe.each do |recipe| %>
+				<tr>
+					<td><%= recipe.name %></td>
+					<td><%= recipe.description %></td>
+					<td><%= link_to '[View recipe]', recipe_path(recipe.id) %></td>
+					<td><%= link_to '[Edit]', edit_recipe_path(recipe.id) %></td>
+					<td><%= link_to '[Delete]', recipe_path(recipe.id), method: :delete, data: { confirm: 'Are you sure?'} %></td>
+				</tr>
+			<% end %>
+
+		</table>
+	</div>
+</div>
+
