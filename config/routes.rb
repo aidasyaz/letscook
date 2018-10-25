@@ -7,7 +7,15 @@ Rails.application.routes.draw do
 
   # login logout session
   resources :sessions, only: [:create]
-  # new user registration
-  resources :users, only: [:new, :create]
+  
+  # user
+  resources :users
+  # recipes
+  resources :recipes
+ 
+ get "/auth/:provider/callback" => "sessions#create_from_omniauth"
+
+
+
 
 end

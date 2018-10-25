@@ -1,0 +1,29 @@
+<!-- partial for recipes form -->
+
+<%= form_for @recipe, local: true do |f| %>
+
+	<%= render 'shared/error_messages' %>
+
+	<div class = 'form-group'>
+		<%= f.label :recipe_name %>
+		<%= f.text_field :name, class: 'form-control' , placeholder: 'Recipe name'%>
+	</div>
+
+	<div class = 'form-group'>
+		<%= f.label :description %>
+		<%= f.text_field :description, class: 'form-control' , placeholder: 'Description' %>
+	</div>
+
+	<div class = 'form-group'>
+		<%= f.label :ingredients %>
+		<%= f.text_field :ingredients, class: 'form-control' , placeholder: 'Ingredients' %>
+	</div>
+
+	<div class = 'form-group'>
+		<%= f.label :instructions %>
+		<%= f.text_field :instructions, class: 'form-control' , placeholder: 'Instructions' %>
+	</div>
+
+	<%= f.submit class: 'btn btn-primary' %>
+
+<% end %> 
