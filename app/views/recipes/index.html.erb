@@ -1,12 +1,12 @@
- <h1>Homepage for recipes</h1>
+<div class= "container-fluid">
+	<h1>Homepage for recipes</h1>
 
-<!-- flashes welcome user notice -->
-<% if flash[:success] %>
-  <%= flash[:success] %>
-<% end %>
-
-<div class= "container">
-	Logged as <strong><%= current_user.email %></strong>
+	<!-- flashes welcome user notice -->
+	<% if flash[:success] %>
+	  <%= flash[:success] %>
+	<% end %>
+	<br>
+	Logged as <strong><%= current_user.name %></strong>
 </div>
 
 <div class="container-fluid">
