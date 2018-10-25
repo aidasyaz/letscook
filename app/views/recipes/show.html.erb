@@ -1,7 +1,25 @@
 <!-- recipe show page -->
 
-<h2> My Recipe </h2>
+<div class= "container-fluid">
 
-<strong><%= @recipe.name %></strong>
+	<%= link_to 'All recipes', root_path %>
+	<%= link_to 'Edit recipes', edit_recipe_path(@recipe.id) %>
+	<h2><%= @recipe.name %> Recipe </h2>
 
-<%= @recipe.description %>
+	<!-- recipe image -->
+
+	<strong>posted at</strong>
+	
+	<!-- recipe descriptions -->
+	
+		<p>Description:
+			<%= @recipe.description %>
+		</p>
+		<p> Ingredients:
+			<%= @recipe.ingredients %>
+		</p>
+		<p> Instructions:
+			<%= @recipe.instructions %>
+		</p>
+	
+</div>
