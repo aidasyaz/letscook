@@ -12,6 +12,11 @@
 <div class="container-fluid">
 	<div class="jumbotron">
 		<%= link_to 'New Recipe', new_recipe_path %>
+		
+		<div class="pagination">
+			<%= will_paginate @recipe %>
+		</div>
+
 		<table>
 			<tr>
 				<th>Title</th>

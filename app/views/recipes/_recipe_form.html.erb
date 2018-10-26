@@ -4,6 +4,20 @@
 
 	<%= render 'shared/error_messages' %>
 
+	<!-- field to upload image file -->
+	<div class="form-group">
+		<%= f.label :image  %>
+		<%= f.file_field :image, class: 'form-control' , placeholder: 'Recipe image'  %>
+		<!-- if there is already an image object -->
+		<% if f.object.image? %>
+			<!-- image displayed -->
+	      <%= image_tag f.object.image.large.url %>
+	      	<!-- remove image option -->
+	      <%= f.label :remove_image %>
+	      <%= f.check_box :remove_image %> 
+    	<% end %>
+	</div>
+
 	<div class = 'form-group'>
 		<%= f.label :recipe_name %>
 		<%= f.text_field :name, class: 'form-control' , placeholder: 'Recipe name'%>

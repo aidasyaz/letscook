@@ -1,7 +1,8 @@
 class RecipesController < ApplicationController
 
 	def index
-		@recipe = Recipe.all
+		# for pagination on recipe#index page
+		@recipe = Recipe.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def new
@@ -52,6 +53,8 @@ class RecipesController < ApplicationController
 
 	def recipe_params
 		params.require(:recipe).permit(
+			:image,
+			:remove_image,
 			:name,
 			:description,
 			:ingredients,
