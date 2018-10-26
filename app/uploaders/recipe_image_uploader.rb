@@ -4,7 +4,8 @@ class RecipeImageUploader < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   # Choose what kind of storage to use for this uploader:
-  storage :file
+  # storage :file
+  storage :aws
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -29,12 +30,14 @@ class RecipeImageUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb do
-    process resize_to_fill: [50, 50]
+  version :medium do
+    process resize_to_fit: [300,300]
   end
-
-  version :large do
-    process resize_to_fill: [200,200]
+  version :small do
+    process resize_to_fit: [140,140]
+  end
+  version :thumbnail do
+    process resize_to_fit: [64,64]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

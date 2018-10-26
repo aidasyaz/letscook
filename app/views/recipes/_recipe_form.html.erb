@@ -11,7 +11,7 @@
 		<!-- if there is already an image object -->
 		<% if f.object.image? %>
 			<!-- image displayed -->
-	      <%= image_tag f.object.image.large.url %>
+	      <%= image_tag f.object.image.medium.url %>
 	      	<!-- remove image option -->
 	      <%= f.label :remove_image %>
 	      <%= f.check_box :remove_image %> 
