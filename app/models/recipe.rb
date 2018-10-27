@@ -5,6 +5,9 @@ class Recipe < ApplicationRecord
 
 	validates_processing_of :image
 	validate :image_size_validation
+
+	# search scopes
+	# scope :starts_with, -> (name) { where("name like ?", "#{name}%") }
  	
  	# no image greater than 500KB gets uploaded
 	private
