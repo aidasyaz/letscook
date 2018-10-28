@@ -1,10 +1,12 @@
 class User < ApplicationRecord
 	has_secure_password
 	has_many :authentications, dependent: :destroy
-
-	validates :email, uniqueness: true, presence: true
-	validates :name,  presence: true
 	has_many :recipes
+
+	validates :email, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, on: :create }, presence: true
+	validates :password_digest, length: { minimum: 5}
+	validates :first_name,  presence: true
+	
 
 
 	# generates random token
