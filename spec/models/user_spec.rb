@@ -11,6 +11,8 @@ RSpec.describe User, type: :model do
 		it "is valid with valid attributes" do
 			expect(user).to be_valid
 		end
+
+		it { should have_secure_password }
 		
 		# password
 		# unhappy

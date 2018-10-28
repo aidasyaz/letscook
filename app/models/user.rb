@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-	# has_secure_password
+	has_secure_password
 	has_many :authentications, dependent: :destroy
 	has_many :recipes
 
