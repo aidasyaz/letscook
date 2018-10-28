@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'video/Uploads'
   root 'recipes#index' 
   
   # sessions
@@ -7,8 +6,7 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
 
   # login logout session
-  resources :sessions, only: [:create]
-  
+  resources :sessions, only: [:create] 
   # user
   resources :users
   # recipes
