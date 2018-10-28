@@ -6,7 +6,7 @@ class RecipesController < ApplicationController
 		# @recipe = Recipe.starts_with(params[:starts_with]) if params[:starts_with].present?
 		
 		@q = Recipe.ransack(params[:q])
-		@recipe = @q.result
+		@recipe = @q.result.paginate(:page => params[:page], :per_page => 10)
 
 	end
 

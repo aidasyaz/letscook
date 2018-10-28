@@ -16,19 +16,20 @@
 		<!-- search form -->
 		<%= search_form_for @q, local: true do |f| %>
 			
-			<%= f.label :search %>
+			<%= f.label :Search %>
 			<%= f.search_field :name_cont %>
-			<% f.submit 'Search' %>
+			<%= f.submit  %>
 
 		<% end %>
 		
 		<!-- pagination -->
-		
-
+		<div class="pagination">
+			<%= will_paginate @recipe %>
+		</div>
 		<!-- contents -->
 		<table>
 			<tr>
-				<th><%= sort_link(@q, :food_name) %></th>
+				<th><%= sort_link(@q, :name) %></th>
 				<th>Description</th>
 				<th></th>
 			</tr>
