@@ -4,10 +4,12 @@
 
 	<%= link_to 'All recipes', root_path %>
 	<%= link_to 'Edit recipes', edit_recipe_path(@recipe.id) %>
+	
 	<h2><%= @recipe.name %> Recipe </h2>
-
+	
 	<!-- recipe image -->
-
+	<%= image_tag @recipe.image.medium.url.to_s %>
+	<br>
 	<strong>posted at</strong>
 	
 	<!-- recipe descriptions -->

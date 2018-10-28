@@ -12,9 +12,23 @@
 <div class="container-fluid">
 	<div class="jumbotron">
 		<%= link_to 'New Recipe', new_recipe_path %>
+
+		<!-- search form -->
+		<%= search_form_for @q, local: true do |f| %>
+			
+			<%= f.label :search %>
+			<%= f.search_field :name_cont %>
+			<% f.submit 'Search' %>
+
+		<% end %>
+		
+		<!-- pagination -->
+		
+
+		<!-- contents -->
 		<table>
 			<tr>
-				<th>Title</th>
+				<th><%= sort_link(@q, :food_name) %></th>
 				<th>Description</th>
 				<th></th>
 			</tr>

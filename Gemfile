@@ -45,6 +45,19 @@ gem "figaro"
 
 gem 'faker'
 
+gem 'will_paginate', '~> 3.1.0'
+
+# image uploader
+gem 'carrierwave', '~> 1.0'
+
+gem 'carrierwave-aws'
+# image resizing
+gem "mini_magick"
+
+gem 'aws-sdk-rails'
+
+gem 'ransack'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
