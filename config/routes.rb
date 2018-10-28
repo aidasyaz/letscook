@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'video/Uploads'
   root 'recipes#index' 
   
   # sessions
@@ -12,10 +13,14 @@ Rails.application.routes.draw do
   resources :users
   # recipes
   resources :recipes
- 
+
+  # youtube video
+  resources :videos, only: [:index, :new, :create, :destroy]
+  
  get "/auth/:provider/callback" => "sessions#create_from_omniauth"
 
 
 
 
 end
+
