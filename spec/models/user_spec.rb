@@ -2,12 +2,13 @@ require 'rails_helper'
 
 
 RSpec.describe User, type: :model do
-	describe "validation" do
-		user = described_class.new(
+	user = described_class.new(
 			first_name: 'tester',
 			email: 'mail@email.com',
 			password_digest: '123456')
 
+	describe "validation" do
+		
 		it "is valid with valid attributes" do
 			expect(user).to be_valid
 		end
@@ -51,15 +52,15 @@ RSpec.describe User, type: :model do
 			expect(user).to_not be_valid
 		end
 
-		it "is valid without a name" do
+		it "is invalid without a name" do
 			user.first_name = nil
 			expect(user).to_not be_valid
 		end
-	
-
-		describe "associations" do		
-			it { should have_many(:authentications) }
-			it { should have_many(:recipes) }
-		end
 	end
+
+	describe "associations" do		
+		it { should have_many(:authentications) }
+		it { should have_many(:recipes) }
+	end
+	
 end
